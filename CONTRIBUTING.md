@@ -16,6 +16,7 @@ All work at Secure Pride follows the [Copilot Instructions](docs/COPILOT-INSTRUC
 Before submitting a pull request, ensure your code meets these standards:
 
 ### Security
+
 - [ ] No external telemetry or tracking
 - [ ] No unencrypted data storage or transmission
 - [ ] SOGI data encrypted (AES-256-GCM at rest, TLS 1.3+ in transit)
@@ -23,6 +24,7 @@ Before submitting a pull request, ensure your code meets these standards:
 - [ ] Input validation on both client and server
 
 ### Code Quality (SWE-bench Verified)
+
 - [ ] Correct syntax, compiles without errors
 - [ ] Handles edge cases (null, empty, invalid input)
 - [ ] Error handling with appropriate logging
@@ -31,6 +33,7 @@ Before submitting a pull request, ensure your code meets these standards:
 - [ ] Integrates with existing codebase
 
 ### Accessibility
+
 - [ ] Clear, concise language (no jargon)
 - [ ] Low-cognitive-load design
 - [ ] Sans-serif fonts, high contrast
@@ -43,7 +46,7 @@ Before submitting a pull request, ensure your code meets these standards:
 When making decisions during development:
 
 | Decision Type | Can I Decide? | Must I Document? | Requires Approval? |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Code architecture, refactoring | ✅ Yes | No | No |
 | Data schema, security decisions | ⚠️ Conditional | **YES** | No (but document first) |
 | UX, accessibility changes | ⚠️ Conditional | **YES** | No (but document first) |
