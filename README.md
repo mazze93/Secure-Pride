@@ -32,4 +32,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing to Secure 
 
 ## Contact
 
+**Website**: [https://securepride.org](https://securepride.org)
+
+[Add contact information here]
+
 [Add contact information here]
