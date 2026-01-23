@@ -1,6 +1,6 @@
 # Secure Pride Copilot Instructions
 
-**Organization**: [Secure Pride](https://secure-pride.org)  
+**Organization**: [Secure Pride](https://securepride.org)  
 **Purpose**: Operational framework for AI-assisted development and security work  
 **Version**: 2.0 (Refined January 9, 2026)  
 **Status**: Production-Ready
@@ -35,7 +35,7 @@ This document establishes operational standards for AI-assisted work in Secure P
 
 ---
 
-## Part 1: Core Philosophy – Mindful Development Framework
+## Part 1: Core Philosophy of the Mindful Development Framework
 
 The **Mindful Development framework** governs all work. Every task follows this six-step cycle:
 
