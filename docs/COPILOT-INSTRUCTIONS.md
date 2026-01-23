@@ -10,7 +10,7 @@
 ## Table of Contents
 
 1. [Executive Summary](#executive-summary)
-2. [Core Philosophy: Mindful Development Framework](#part-1-core-philosophy--mindful-development-framework)
+2. [Core Philosophy of the Mindful Development Framework](#part-1-core-philosophy-of-the-mindful-development-framework)
 3. [Autonomous Build Agency & Decision Authority](#part-2-autonomous-build-agency--decision-authority)
 4. [Security Standards: Privacy-First Mandate](#part-3-security-standards-privacy-first-mandate)
 5. [Code Generation: SWE-bench Verified Standard](#part-4-code-generation-swe-bench-verified-standard)
