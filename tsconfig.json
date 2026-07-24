@@ -4,4 +4,5 @@
     "jsxImportSource": "react"
   },
   "exclude": ["dist", "node_modules", "secure-pride-raycast-extensions"]
+  "include": ["src"]
 }
