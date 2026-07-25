@@ -26,6 +26,17 @@ If this file conflicts with the shared instructions, @docs/COPILOT-INSTRUCTIONS.
 - Treat all user data as sensitive by default, with heightened protection for SOGI-related data.
 - Keep security and accessibility requirements embedded in implementation, not deferred to later cleanup.
 
+## Commands
+```bash
+npm run dev      # Astro dev server
+npm run build    # Static build → dist/
+npm run check    # Astro build + tsc validation (run before commit)
+```
+
+## Project State
+- **Hosting**: Cloudflare Pages + DNS — domain: securepride.org
+- **Repo**: `mazze93/Secure-Pride` / canonical local: `/Users/daedalus/Code/secure-pride/secure-pride-site` (Praxis Workspace Atlas — Security Mode)
+- **Cloudflare**: `_headers` and `_redirects` exist; Pages deployment status — verify in dashboard.
 ## Workflow
 - Before major changes, explain intent, constraints, and verification approach.
 - For security- or privacy-relevant work, document risks, tradeoffs, and affected data flows.
