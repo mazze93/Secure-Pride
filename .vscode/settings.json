@@ -1,0 +1,17 @@
+{
+  "// praxis-mode": "Security \u2014 Secure Pride",
+  "// fg-tint": "security",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#3d0010",
+    "titleBar.inactiveBackground": "#3d0010",
+    "titleBar.activeForeground": "#e6ecf5",
+    "titleBar.inactiveForeground": "#e6ecf5aa",
+    "titleBar.border": "#3d0010",
+    "activityBar.background": "#3d0010",
+    "activityBar.foreground": "#e6ecf5",
+    "activityBar.inactiveForeground": "#e6ecf5aa",
+    "activityBar.border": "#3d0010",
+    "statusBar.background": "#3d0010",
+    "statusBar.foreground": "#e6ecf5"
+  }
+}
