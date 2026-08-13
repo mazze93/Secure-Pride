@@ -47,10 +47,11 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=${{ env.PUSH_LATEST }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=raw,value=latest,enable=${{ env.PUSH_LATEST }}
 
       - name: Build and push
         uses: docker/build-push-action@v7
