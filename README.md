@@ -125,6 +125,15 @@ A contribution is complete when:
 
 ## 🧪 Development
 
+Built with [Astro](https://astro.build), deployed to Cloudflare Pages.
+
+```bash
+npm install
+npm run dev      # Astro dev server
+npm run build    # Static build → dist/
+npm run check    # Astro build + tsc validation (run before commit)
+```
+
 Key docs:
 
 * **[Copilot Instructions](docs/COPILOT-INSTRUCTIONS.md)**
@@ -132,6 +141,25 @@ Key docs:
 
 * **[Quick Reference](docs/QUICK-REFERENCE.md)**
   → Fast rules during implementation
+
+---
+
+## 🐳 Self-Hosting / Docker
+
+A self-contained image (Astro build → static `dist/`, served by nginx) is
+published on version tags via `.github/workflows/release.yml`.
+
+```bash
+docker build -t secure-pride .
+docker run -p 8080:80 secure-pride
+# open http://localhost:8080
+```
+
+Full release/token-rotation playbook: **[docs/DOCKERHUB_TOKEN_WORKFLOW.md](docs/DOCKERHUB_TOKEN_WORKFLOW.md)**
+
+Note: Cloudflare Pages Functions (`/api/scan`, `/api/health`) are not part of
+this image — they run on the Cloudflare runtime. For full-stack local dev,
+use `npx wrangler pages dev`.
 
 ---
 

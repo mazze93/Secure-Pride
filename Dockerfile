@@ -1,23 +1,27 @@
 # syntax=docker/dockerfile:1
 
 # ── Stage 1: Build the Astro site ──────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:24.19.0-alpine AS builder
 WORKDIR /app
 
 # Install deps before copying source so layer is cached on dep changes only
-COPY package.json ./
-COPY site/package.json ./site/
-RUN npm install --workspace=site
+COPY package.json package-lock.json .npmrc ./
+RUN npm ci
 
-COPY site/ ./site/
-RUN npm run build           # runs `npm -w site run build` → site/dist/
+# Only the inputs astro build actually reads — keeps the layer cache tight
+# and avoids pulling unrelated top-level files (docs/, functions/, etc.)
+# into the build stage.
+COPY astro.config.mjs tsconfig.json tailwind.config.ts postcss.config.mjs ./
+COPY src/ ./src/
+COPY public/ ./public/
+RUN npm run build           # astro build → dist/
 
 # ── Stage 2: Serve with nginx ────────────────────────────────────────────────
-FROM nginx:1.27-alpine
+FROM nginx:1.30.4-alpine
 
 # Harden: drop all default config, add minimal one
 RUN rm /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/site/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Minimal config: gzip, long-lived static assets, correct MIME types
 RUN printf 'server {\n\

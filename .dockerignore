@@ -1,0 +1,35 @@
+# Version control & editor cruft — never needed in the build context
+.git
+.github
+.vscode
+.idea
+.claude
+.DS_Store
+
+# Secrets — must never reach a build context or image layer
+.env
+.env.*
+
+# Build artefacts & caches — regenerated fresh inside the image
+node_modules
+dist
+.astro
+.wrangler
+.cache
+
+# Not part of the Astro static build (Cloudflare Pages Functions run on the
+# CF runtime, not in this image — see docs/DOCKERHUB_TOKEN_WORKFLOW.md)
+functions
+api
+wrangler.toml
+_headers
+_redirects
+
+# Docs, decisions, tooling scripts, unrelated sub-projects — irrelevant to
+# the site build and only bloat the build context / bust layer cache
+docs
+decisions
+bin
+secure-pride-raycast-extensions
+securepride-document-engine.jsx
+*.md
