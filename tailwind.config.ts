@@ -5,25 +5,31 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Kintsugi reskin — neon/brand/dark/text now resolve to Kintsugi
+        // equivalents (same role, new palette). status stays frozen per
+        // Kintsugi's own spec ("unchanged from spec v0, kept for
+        // continuity"). neon.* uses Kintsugi's own documented back-compat
+        // mapping (gem tones standing in for each retired neon color) so
+        // any existing neon-* class keeps working without a rename.
         neon: {
-          pink: '#ff2d95', magenta: '#e040fb', purple: '#b24bf3', violet: '#7c4dff',
-          blue: '#448aff', cyan: '#06d6e0', teal: '#0a7e74', green: '#00e676',
-          yellow: '#ffd600', orange: '#ff9100', red: '#ff3d00',
+          pink: '#c81e6c', magenta: '#b23aa8', purple: '#6a3dcc', violet: '#8b2ecc',
+          blue: '#3a6ad9', cyan: '#0fb5c9', teal: '#0a7e74', green: '#10c96a',
+          yellow: '#e8a500', orange: '#e8871a', red: '#c8321e',
         },
         brand: {
-          primary: '#0a7e74', accent: '#3a2a5e', electric: '#06d6e0',
-          hotPink: '#ff2d95', violet: '#b24bf3',
+          primary: '#0a7e74', accent: '#8b2ecc', electric: '#ff5f1f',
+          hotPink: '#c81e6c', violet: '#8b2ecc',
         },
         dark: {
-          void: '#05050f', bg: '#0a0a1a', surface: '#111128', elevated: '#1a1a35',
-          border: '#2a2a50', borderGlow: '#3a3a6a',
+          void: '#0a0a1a', bg: '#0a0a1a', surface: '#0f1028', elevated: '#1a1f3e',
+          border: '#3a3a6a', borderGlow: '#8a8ad0',
         },
         light: { bg: '#faf8f5', surface: '#ffffff', elevated: '#f0ede8', border: '#d4cfc7' },
         status: { protected: '#06d6e0', warning: '#ffd600', blocked: '#ff2d95', info: '#448aff' },
-        text: { primary: '#eeeef6', secondary: '#9898b8', muted: '#5a5a78', inverse: '#0a0a1a' },
-        // Kintsugi design-system palette (design.securepride.org) — additive,
-        // not yet used by any component. Available for incremental adoption;
-        // see src/styles/tokens.css for the CSS-custom-property equivalents.
+        text: { primary: '#f4f4fb', secondary: '#cfd0e8', muted: '#8b8db0', inverse: '#0f1028' },
+        // Raw Kintsugi palette, for anything that wants a token the roles
+        // above don't cover. See src/styles/tokens.css for the CSS-custom-
+        // property equivalents.
         kintsugi: {
           brass: {
             highlight: '#f5d07a', light: '#e2b25b', hero: '#b48438', mid: '#8a5f1e',
@@ -66,14 +72,14 @@ export default {
       },
       borderRadius: { sm: '6px', md: '8px', lg: '12px', xl: '16px', '2xl': '20px' },
       boxShadow: {
-        glow: '0 0 20px rgba(6,214,224,0.4), 0 0 60px rgba(6,214,224,0.15)',
-        'glow-pink': '0 0 20px rgba(255,45,149,0.4), 0 0 60px rgba(255,45,149,0.15)',
-        'glow-violet': '0 0 20px rgba(178,75,243,0.4), 0 0 60px rgba(178,75,243,0.15)',
-        'glow-rainbow': '0 0 20px rgba(255,45,149,0.3), 0 0 40px rgba(178,75,243,0.2), 0 0 60px rgba(6,214,224,0.15)',
+        glow: '0 0 20px rgba(255,95,31,0.4), 0 0 60px rgba(255,95,31,0.15)',
+        'glow-pink': '0 0 20px rgba(200,30,108,0.4), 0 0 60px rgba(200,30,108,0.15)',
+        'glow-violet': '0 0 20px rgba(139,46,204,0.4), 0 0 60px rgba(139,46,204,0.15)',
+        'glow-rainbow': '0 0 20px rgba(200,30,108,0.3), 0 0 40px rgba(139,46,204,0.2), 0 0 60px rgba(255,95,31,0.15)',
       },
       backgroundImage: {
-        'rainbow-gradient': 'linear-gradient(135deg, #ff3d00, #ff9100, #ffd600, #00e676, #448aff, #b24bf3, #ff2d95)',
-        'neon-gradient': 'linear-gradient(135deg, #06d6e0, #b24bf3, #ff2d95)',
+        'rainbow-gradient': 'linear-gradient(135deg, #c8321e, #e8871a, #e8a500, #10c96a, #3a6ad9, #8b2ecc, #c81e6c)',
+        'neon-gradient': 'linear-gradient(135deg, #ff5f1f, #8b2ecc, #c81e6c)',
       },
       animation: { glow: 'glow 1.5s ease-in-out infinite alternate' },
       keyframes: {
