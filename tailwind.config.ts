@@ -21,11 +21,32 @@ export default {
         light: { bg: '#faf8f5', surface: '#ffffff', elevated: '#f0ede8', border: '#d4cfc7' },
         status: { protected: '#06d6e0', warning: '#ffd600', blocked: '#ff2d95', info: '#448aff' },
         text: { primary: '#eeeef6', secondary: '#9898b8', muted: '#5a5a78', inverse: '#0a0a1a' },
+        // Kintsugi design-system palette (design.securepride.org) — additive,
+        // not yet used by any component. Available for incremental adoption;
+        // see src/styles/tokens.css for the CSS-custom-property equivalents.
+        kintsugi: {
+          brass: {
+            highlight: '#f5d07a', light: '#e2b25b', hero: '#b48438', mid: '#8a5f1e',
+            dark: '#4a341a', deep: '#3a2a12', void: '#2a1c08',
+          },
+          indigo: {
+            light: '#8a8ad0', edge: '#3a3a6a', raised: '#232852', hero: '#2a1f54',
+            slate: '#1a1f3e', deep: '#0f1028', void: '#0a0a1a',
+          },
+          fireOpal: {
+            cream: '#ffe8b8', ember: '#ffa94d', base: '#ff5f1f', core: '#d63030', deep: '#7a1f2e',
+          },
+          gem: {
+            garnet: '#c8321e', amber: '#e8871a', citrine: '#e8a500', emerald: '#10c96a',
+            malachite: '#0a7e74', sapphire: '#0fb5c9', lapis: '#3a6ad9', amethyst: '#8b2ecc',
+            tourmaline: '#c81e6c',
+          },
+        },
       },
       fontFamily: {
         display: "'Orbitron', 'Rajdhani', sans-serif",
         heading: "'Rajdhani', 'DM Sans', sans-serif",
-        body: "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         mono: "'JetBrains Mono', 'SF Mono', 'Monaco', monospace",
       },
       fontSize: {

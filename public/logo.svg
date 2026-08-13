@@ -1,12 +1,84 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
-  <path d="M16 8L20 14H12L16 8Z" fill="white"/>
-  <path d="M12 18L16 24L20 18H12Z" fill="white"/>
-  <circle cx="16" cy="16" r="2" fill="#0a0a1a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Secure Pride — Heart-Lock Shield">
+
   <defs>
-    <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#06d6e0"/>
-      <stop offset="100%" stop-color="#0a7e74"/>
+    <linearGradient id="brass-shield" x1="0%" y1="0%" x2="70%" y2="100%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#D6B97A"></stop>
+      <stop offset="45%" stop-color="#B08D57"></stop>
+      <stop offset="100%" stop-color="#7A623A"></stop>
     </linearGradient>
+
+    <linearGradient id="brass-lock" x1="0%" y1="0%" x2="70%" y2="100%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#DFC485"></stop>
+      <stop offset="45%" stop-color="#C09862"></stop>
+      <stop offset="100%" stop-color="#8A6E42"></stop>
+    </linearGradient>
+
+    <linearGradient id="prism-a" x1="0%" y1="0%" x2="100%" y2="30%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#6FE7FF"></stop>
+      <stop offset="50%" stop-color="#8A6CFF"></stop>
+      <stop offset="100%" stop-color="#C86BFF"></stop>
+    </linearGradient>
+    <linearGradient id="prism-b" x1="10%" y1="0%" x2="100%" y2="60%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#6FE7FF"></stop>
+      <stop offset="50%" stop-color="#8A6CFF"></stop>
+      <stop offset="100%" stop-color="#C86BFF"></stop>
+    </linearGradient>
+    <linearGradient id="prism-c" x1="0%" y1="20%" x2="90%" y2="100%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#8A6CFF"></stop>
+      <stop offset="100%" stop-color="#C86BFF"></stop>
+    </linearGradient>
+
+    <clipPath id="shield-clip">
+      <path d="M 512,148 C 672,148 812,208 832,372 C 852,536 724,724 512,888 C 300,724 172,536 192,372 C 212,208 352,148 512,148 Z"></path>
+    </clipPath>
   </defs>
+
+  <rect id="base-field" width="1024" height="1024" fill="#0B0F14"></rect>
+
+  <g id="shield-structure">
+    <path id="shield-outer" d="M 512,148&#xA;         C 672,148 812,208 832,372&#xA;         C 852,536 724,724 512,888&#xA;         C 300,724 172,536 192,372&#xA;         C 212,208 352,148 512,148&#xA;         Z" fill="url(#brass-shield)"></path>
+
+    <path id="shield-inner-frame" d="M 512,210&#xA;         C 648,210 772,258 788,392&#xA;         C 804,526 696,700 512,836&#xA;         C 328,700 220,526 236,392&#xA;         C 252,258 376,210 512,210&#xA;         Z" fill="none" stroke="#C4A464" stroke-width="1.5" opacity="0.45"></path>
+  </g>
+
+  <g id="heart-lock-core" clip-path="url(#shield-clip)">
+    <path id="shackle" d="M 475,492 L 475,414 C 475,362 549,362 549,414 L 549,492" fill="none" stroke="url(#brass-lock)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <path id="heart-body" d="M 512,648&#xA;         C 432,614 390,562 390,520&#xA;         C 390,478 416,454 448,454&#xA;         C 474,454 498,470 512,496&#xA;         C 526,470 550,454 576,454&#xA;         C 608,454 634,478 634,520&#xA;         C 634,562 592,614 512,648&#xA;         Z" fill="url(#brass-lock)"></path>
+
+    <ellipse id="keyhole-circle" cx="512" cy="538" rx="20" ry="22" fill="#0B0F14"></ellipse>
+
+    <path id="keyhole-tab" d="M 502,557 L 512,608 L 522,557 Z" fill="#0B0F14"></path>
+  </g>
+
+  <g id="abrasion-light-system" clip-path="url(#shield-clip)">
+
+    <g id="abrasion-system">
+
+      <line x1="372" y1="584" x2="426" y2="614" stroke="#E6C98A" stroke-width="1.5" opacity="0.09"></line>
+      <line x1="354" y1="624" x2="412" y2="644" stroke="#E6C98A" stroke-width="1.2" opacity="0.07"></line>
+      <line x1="384" y1="658" x2="436" y2="668" stroke="#E6C98A" stroke-width="1.0" opacity="0.08"></line>
+      <line x1="342" y1="598" x2="368" y2="632" stroke="#E6C98A" stroke-width="1.5" opacity="0.06"></line>
+      <line x1="416" y1="684" x2="452" y2="702" stroke="#E6C98A" stroke-width="1.2" opacity="0.09"></line>
+      <line x1="366" y1="710" x2="418" y2="728" stroke="#E6C98A" stroke-width="1.0" opacity="0.07"></line>
+      <line x1="396" y1="738" x2="428" y2="754" stroke="#E6C98A" stroke-width="1.5" opacity="0.06"></line>
+      <line x1="446" y1="718" x2="488" y2="740" stroke="#E6C98A" stroke-width="1.0" opacity="0.08"></line>
+      <line x1="352" y1="668" x2="388" y2="686" stroke="#E6C98A" stroke-width="1.2" opacity="0.07"></line>
+      <line x1="406" y1="604" x2="440" y2="622" stroke="#E6C98A" stroke-width="1.0" opacity="0.09"></line>
+      <line x1="360" y1="748" x2="400" y2="762" stroke="#E6C98A" stroke-width="1.2" opacity="0.06"></line>
+      <line x1="432" y1="760" x2="462" y2="778" stroke="#E6C98A" stroke-width="1.0" opacity="0.07"></line>
+
+      <line x1="336" y1="572" x2="428" y2="628" stroke="#E6C98A" stroke-width="2.5" opacity="0.05"></line>
+      <line x1="360" y1="644" x2="446" y2="688" stroke="#E6C98A" stroke-width="2.2" opacity="0.04"></line>
+      <line x1="382" y1="726" x2="458" y2="762" stroke="#E6C98A" stroke-width="2.5" opacity="0.05"></line>
+    </g>
+
+    <g id="prism-capture">
+      <line x1="350" y1="590" x2="400" y2="578" stroke="url(#prism-a)" stroke-width="3.0" opacity="0.14"></line>
+      <line x1="364" y1="643" x2="418" y2="628" stroke="url(#prism-b)" stroke-width="2.5" opacity="0.14"></line>
+      <line x1="388" y1="700" x2="432" y2="684" stroke="url(#prism-c)" stroke-width="3.5" opacity="0.12"></line>
+      <line x1="344" y1="622" x2="374" y2="610" stroke="url(#prism-a)" stroke-width="2.0" opacity="0.13"></line>
+    </g>
+
+  </g>
 </svg>

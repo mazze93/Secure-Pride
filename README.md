@@ -242,6 +242,17 @@ See: [LICENSE](LICENSE)
 * [ ] Accessibility validation tooling
 * [ ] Community security playbooks
 
+### Blog System (deferred milestone)
+
+The Astro blog (`BlogCard`, `PostMeta`, `Triptych`, content collection,
+`/blog` routes) was removed 2026-04-29, predating the Astro migration.
+Contracts preserved but commented out in `docs/components/contracts.md`.
+Tracked here as its own milestone rather than folded into general site work.
+
+* [ ] Restore content collection + `/blog` routes
+* [ ] Rebuild `BlogCard`, `PostMeta`, `Triptych` against current Astro version
+* [ ] Decide: reuse commented-out contracts as-is, or redesign against Kintsugi tokens
+
 ---
 
 ## 🧩 Final Note
