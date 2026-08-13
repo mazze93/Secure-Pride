@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description: string;
@@ -12,31 +14,16 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
 
     <style>
-      /* Self-hosted fonts — served from /assets/fonts/ */
-      @font-face {
-        font-family: 'Rajdhani';
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-        src: url('/assets/fonts/rajdhani-600-latin.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Rajdhani';
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-        src: url('/assets/fonts/rajdhani-700-latin.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-weight: 100 900;
-        font-style: normal;
-        font-display: swap;
-        src: url('/assets/fonts/inter-latin.woff2') format('woff2');
-      }
+      /* Fonts are loaded via global.css (self-hosted @fontsource imports) --
+         the previous manual @font-face block here pointed at
+         /assets/fonts/*.woff2 paths that don't exist in the build output,
+         and this layout never loaded Tailwind's compiled CSS at all, so
+         every Tailwind utility class in the tool components (bg-slate-900,
+         text-slate-100, etc.) was silently a no-op. */
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; }
       html, body { height: 100%; }
