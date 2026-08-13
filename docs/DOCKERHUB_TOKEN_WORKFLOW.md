@@ -76,8 +76,8 @@ The `Dockerfile` is a two-stage build:
 
 | Stage | Base | Purpose |
 |-------|------|---------|
-| `builder` | `node:20-alpine` | Runs `npm run build` to compile the Astro site |
-| runtime | `nginx:1.27-alpine` | Serves `site/dist/` on port 80 |
+| `builder` | `node:24.19.0-alpine` | Runs `npm run build` to compile the Astro site |
+| runtime | `nginx:1.30.4-alpine` | Serves `dist/` on port 80 |
 
 Run locally:
 
@@ -86,5 +86,15 @@ docker build -t secure-pride .
 docker run -p 8080:80 secure-pride
 # open http://localhost:8080
 ```
+
+### Troubleshooting: "Username and password required"
+
+If the **Log in to Docker Hub** step fails with `Username and password
+required`, the `DOCKERHUB_USERNAME` and/or `DOCKERHUB_TOKEN` repository
+secrets are unset or empty — this is a credentials problem, not a build
+problem. Re-run the **One-time setup** steps above (`./bin/gh-secrets-setup.sh`)
+and confirm both secrets show a value at
+`https://github.com/mazze93/secure-pride/settings/secrets/actions` before
+re-running the workflow.
 
 Note: Cloudflare Pages Functions (`/api/scan`, `/api/health`) are not included in the Docker image — they run on the CF runtime. For full-stack local dev use `npx wrangler pages dev`.

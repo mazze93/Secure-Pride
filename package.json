@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Secure Pride: Cybersecurity for LGBTQ+ organizations",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
