@@ -1,0 +1,106 @@
+/* ════════════════════════════════════════════════════════════
+   Secure Pride — Kintsugi design tokens (color layer)
+   Source: claude.ai Design project "Secure Pride (kintsugi) Design
+   System" (design-tokens.json / tokens.css) — DTCG format, brass +
+   indigo + fire-opal palette, replaces the retired neon-cyberpunk
+   direction. Full system: https://design.securepride.org/design
+
+   Scope of this pull: color tokens only. Semantic-layer names are
+   namespaced --kintsugi-* so they coexist with the site's current
+   palette (src/styles/global.css) without overriding it — nothing
+   in src/ consumes these yet. Component-level tokens and the .sp-*
+   utility classes from upstream are intentionally left out of this
+   pass; pull them in when components actually adopt the palette.
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Primitives ─────────────────────────────────────────── */
+  --sp-brass-highlight: #f5d07a;
+  --sp-brass-light:     #e2b25b;
+  --sp-brass-hero:      #b48438;
+  --sp-brass-mid:       #8a5f1e;
+  --sp-brass-dark:      #4a341a;
+  --sp-brass-deep:      #3a2a12;
+  --sp-brass-void:      #2a1c08;
+
+  --sp-indigo-light:    #8a8ad0;
+  --sp-indigo-edge:     #3a3a6a;
+  --sp-indigo-raised:   #232852;
+  --sp-indigo-hero:     #2a1f54;
+  --sp-indigo-slate:    #1a1f3e;
+  --sp-indigo-deep:     #0f1028;
+  --sp-indigo-void:     #0a0a1a;
+
+  --sp-fireopal-cream:  #ffe8b8;
+  --sp-fireopal-ember:  #ffa94d;
+  --sp-fireopal-base:   #ff5f1f;
+  --sp-fireopal-core:   #d63030;
+  --sp-fireopal-deep:   #7a1f2e;
+
+  --sp-gem-garnet:      #c8321e;
+  --sp-gem-amber:       #e8871a;
+  --sp-gem-citrine:     #e8a500;
+  --sp-gem-emerald:     #10c96a;
+  --sp-gem-malachite:   #0a7e74;
+  --sp-gem-sapphire:    #0fb5c9;
+  --sp-gem-lapis:       #3a6ad9;
+  --sp-gem-amethyst:    #8b2ecc;
+  --sp-gem-tourmaline:  #c81e6c;
+
+  --sp-status-protected: #06d6e0;
+  --sp-status-warning:   #ffd600;
+  --sp-status-blocked:   #ff2d95;
+  --sp-status-info:      #448aff;
+
+  --sp-text-strong:     #f4f4fb;
+  --sp-text-default:    #cfd0e8;
+  --sp-text-muted:      #8b8db0;
+  --sp-text-subtle:     #5a5d80;
+  --sp-text-disabled:   #3a3d58;
+
+  /* ─── Semantic (namespaced — coexists with the live palette) ── */
+  --kintsugi-bg-canvas:   var(--sp-indigo-void);
+  --kintsugi-bg-surface:  var(--sp-indigo-deep);
+  --kintsugi-bg-elevated: var(--sp-indigo-slate);
+  --kintsugi-bg-overlay:  var(--sp-indigo-raised);
+  --kintsugi-bg-brass:    var(--sp-brass-void);
+
+  --kintsugi-text-primary: var(--sp-text-strong);
+  --kintsugi-text-body:    var(--sp-text-default);
+  --kintsugi-text-muted:   var(--sp-text-muted);
+  --kintsugi-text-subtle:  var(--sp-text-subtle);
+  --kintsugi-text-inverse: var(--sp-indigo-deep);
+  --kintsugi-text-brass:   var(--sp-brass-highlight);
+
+  --kintsugi-action-primary:       var(--sp-fireopal-base);
+  --kintsugi-action-primary-hover: var(--sp-fireopal-ember);
+  --kintsugi-action-brass:         var(--sp-brass-hero);
+  --kintsugi-action-subtle:        var(--sp-indigo-raised);
+  --kintsugi-action-danger:        var(--sp-status-blocked);
+
+  --kintsugi-border-subtle:   rgba(138, 138, 208, 0.10);
+  --kintsugi-border-default:  rgba(138, 138, 208, 0.18);
+  --kintsugi-border-emphasis: rgba(138, 138, 208, 0.32);
+  --kintsugi-border-brass:    rgba(180, 132, 56, 0.32);
+  --kintsugi-border-focus:    var(--sp-fireopal-ember);
+
+  --kintsugi-state-shielded:  var(--sp-brass-hero);
+  --kintsugi-state-protected: var(--sp-status-protected);
+  --kintsugi-state-info:      var(--sp-status-info);
+  --kintsugi-state-warning:   var(--sp-status-warning);
+  --kintsugi-state-blocked:   var(--sp-status-blocked);
+
+  /* Kintsugi seam — repair gradient. Section transition / completion /
+     recovery only, per upstream usage note. Never decorative filler. */
+  --kintsugi-seam-gradient: linear-gradient(
+    90deg,
+    var(--sp-gem-garnet) 0%,
+    var(--sp-fireopal-base) 14%,
+    var(--sp-gem-amber) 28%,
+    var(--sp-gem-citrine) 42%,
+    var(--sp-gem-emerald) 56%,
+    var(--sp-gem-sapphire) 70%,
+    var(--sp-gem-amethyst) 84%,
+    var(--sp-gem-tourmaline) 100%
+  );
+}
