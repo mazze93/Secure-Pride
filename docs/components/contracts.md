@@ -10,6 +10,15 @@
 
 ---
 
+> **Deferred:** `BlogCard`, `PostMeta`, and `Triptych` were removed from the
+> repo on 2026-04-29 (`f9169df`, predating the Astro migration). The
+> contracts below are preserved — commented out, not deleted — for when the
+> blog feature is rebuilt. Tracked as its own roadmap milestone in
+> `README.md`. Nothing in `src/` implements these today; do not treat them
+> as active contracts.
+
+<!--
+
 ## `BlogCard`
 
 **Source:** `site/src/components/blog/BlogCard.astro`  
@@ -170,3 +179,6 @@ import Triptych from '@/components/blog/Triptych.astro';
 - `.triptych__panel` — individual panel `<div>`
 - `.triptych__panel img` — panel image
 - `.triptych__panel figcaption` — optional panel caption
+
+-->
+
