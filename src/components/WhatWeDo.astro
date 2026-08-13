@@ -116,10 +116,18 @@
         <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[0.08em] text-text-primary">
           Deploy the scanner
         </h3>
-        <p class="text-[0.95rem] leading-[1.65] text-text-secondary">
-          One <span class="font-mono text-brand-electric text-[0.85em]">Docker command.</span> Self-hosted on your infrastructure.
-          Your data never touches our servers.
+        <p class="mb-3 text-[0.95rem] leading-[1.65] text-text-secondary">
+          Self-hosted on your infrastructure. Your data never touches our servers.
         </p>
+        <code class="block overflow-x-auto rounded-lg border border-dark-border bg-dark-bg px-3 py-2 font-mono text-[0.8rem] text-brand-electric">docker run -p 8080:80 securepride/secure-pride</code>
+        <a
+          href="https://hub.docker.com/r/securepride/secure-pride"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 inline-block text-[0.8rem] text-text-muted underline decoration-dotted transition-colors duration-150 hover:text-brand-electric"
+        >
+          View the published image on Docker Hub →
+        </a>
       </li>
 
       <li class="step relative reveal reveal-delay-1">
