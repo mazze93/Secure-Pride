@@ -1,37 +1,37 @@
 # Secure Pride
 
-**Security infrastructure for people who cannot fail safely.**
+> **Security infrastructure for people who cannot fail safely.**
 
-Secure Pride builds privacy-first cybersecurity tooling, operational frameworks, and accessible systems for LGBTQ+ communities and other people operating under elevated exposure, surveillance, or institutional risk.
+Secure Pride is an open-source security project for LGBTQ+ communities and other people operating under elevated exposure, surveillance, or institutional risk.
 
-We design for the conditions security documentation usually abstracts away: legal risk, identity exposure, cognitive load, limited staffing, and the cost of getting a security decision wrong.
+It treats legal risk, identity exposure, cognitive load, limited staffing, and the cost of a wrong security decision as engineering inputs—not edge cases.
 
-## What is live
+[Visit the project](https://securepride.org) · [Use the AI Safety Scanner](https://securepride.org/tools/scanner) · [Read the security policy](SECURITY.md) · [Contribute](CONTRIBUTING.md)
 
-The repository currently provides:
+---
 
-- **Privacy-first security infrastructure** — no analytics, tracking, or behavioral telemetry by design.
-- **AI-assisted development controls** — generated code and recommendations are treated as untrusted input until validated.
-- **Accessibility-first engineering standards** — security controls are expected to remain usable under cognitive load and imperfect conditions.
-- **Production-oriented deployment surfaces** — Astro application infrastructure, Cloudflare Pages deployment, and a self-contained Docker image for the static build.
-- **Security and operational documentation** — contributor standards, implementation quick reference, AI-development guidance, release/token-rotation procedures, and recorded architectural decisions.
+## Operating condition
 
-This is the shipped surface. Longer-horizon work remains in the [roadmap](#roadmap).
+A privacy failure is not equally recoverable.
 
-## Why Secure Pride exists
+For someone operating under elevated exposure:
 
-Security systems often assume neutrality. The environments we build for are not neutral.
+- A leaked identity signal can create legal, employment, or personal risk.
+- Behavioral telemetry can become a targeting mechanism.
+- A control that assumes time, expertise, and ideal conditions can fail when it matters most.
 
-For many communities:
+**Secure Pride designs from that condition outward.**
 
-- Exposure can create legal or employment risk.
-- Data leakage can create direct personal harm.
-- Surveillance can become a mechanism of institutional or social targeting.
-- A security control that requires ideal staffing, attention, or technical conditions may fail precisely when it matters most.
+## Shipped surfaces
 
-Secure Pride treats those constraints as part of the threat model rather than edge cases.
+| Surface | What it provides | Runtime / boundary |
+| --- | --- | --- |
+| [Secure Pride web platform](https://securepride.org) | Public project entry point, documentation, and security resources | Astro on Cloudflare Pages |
+| [AI Safety Scanner](https://securepride.org/tools/scanner) | Bounded AI-assisted analysis with validation-oriented workflows | Cloudflare runtime; treat outputs as untrusted until reviewed |
+| Static distribution | Self-contained build for containerized local use | Docker serves the static build only |
+| Security development controls | Contribution rules, AI-development guidance, architecture decisions, and release procedures | Version-controlled documentation |
 
-> Security is not optional—and it must not come at the cost of dignity.
+> **Scope boundary:** Cloudflare Pages Functions, including `/api/scan` and `/api/health`, are not bundled into the Docker image. Use `npx wrangler pages dev` for full-stack local development.
 
 ## Security posture
 
@@ -41,93 +41,79 @@ Secure Pride treats those constraints as part of the threat model rather than ed
 | **Threats are adversarial** | Model legal, social, institutional, and technical exposure; prefer safe defaults over convenience. |
 | **Accessibility is a security property** | Design for cognitive load, imperfect conditions, and users who cannot rely on ideal workflows. |
 | **AI is not an authority** | Treat AI output as untrusted input; verify generated code and security claims before use. |
-| **Production readiness matters** | No placeholders masquerading as finished work; validate code, security, accessibility, and documentation before release. |
+| **Production readiness matters** | Validate code, security, accessibility, and documentation before release. |
 
-### Risk → constraint → validation
+## How we make claims checkable
 
 ```mermaid
 flowchart LR
-    R[Real-world risk] --> C[Engineering constraint]
-    C --> V[Validation]
+    R[Elevated exposure] --> C[Engineering constraint]
+    C --> G[Guardrail]
+    G --> V[Verification]
 
-    R1[Identity exposure] --> C1[Data minimization]
-    C1 --> V1[Privacy review]
+    R1[Identity leakage] --> C1[Minimize data collection]
+    C1 --> G1[No analytics or behavioral telemetry]
+    G1 --> V1[Code review and repository controls]
 
-    R2[Adversarial conditions] --> C2[Safe defaults]
-    C2 --> V2[Security testing]
+    R2[Cognitive load] --> C2[Accessible security workflows]
+    C2 --> G2[Usable under imperfect conditions]
+    G2 --> V2[Accessibility validation]
 
-    R3[Cognitive load] --> C3[Accessible workflows]
-    C3 --> V3[Accessibility checks]
-
-    R4[AI-generated change] --> C4[Untrusted until verified]
-    C4 --> V4[Tests + review]
+    R3[AI-assisted change risk] --> C3[AI output is untrusted]
+    C3 --> G3[Review, tests, and security checks]
+    G3 --> V3[Release gate]
 ```
 
-The governing idea is simple: a stated risk must produce a concrete engineering constraint, and that constraint must have a way to be checked.
+A stated risk should produce a concrete engineering constraint, a guardrail, and a way to verify that the constraint is being enforced.
 
-## Non-negotiables
-
-All contributions must:
-
-- Include zero telemetry or hidden data collection.
-- Protect sensitive identity data, including sexual orientation and gender identity (SOGI) information.
-- Meet the project's accessibility baseline.
-- Pass applicable tests, linting, and security checks.
-- Include documentation appropriate to the change.
-
-Detailed contribution and AI-development requirements live in [CONTRIBUTING.md](CONTRIBUTING.md), [Copilot Instructions](docs/COPILOT-INSTRUCTIONS.md), and the [Quick Reference](docs/QUICK-REFERENCE.md).
-
-## Development
+## Run locally
 
 Built with [Astro](https://astro.build) and deployed to Cloudflare Pages.
 
 ```bash
 npm install
-npm run dev      # Astro dev server
-npm run build    # Static build → dist/
-npm run check    # Astro build + TypeScript validation
+npm run dev
+npm run build
+npm run check
 ```
 
-For containerized local use:
+For the static container:
 
 ```bash
 docker build -t secure-pride .
 docker run -p 8080:80 secure-pride
 ```
 
-The Docker image serves the static Astro build. Cloudflare Pages Functions such as `/api/scan` and `/api/health` run on the Cloudflare runtime and are not included in the image. For full-stack local development, use `npx wrangler pages dev`.
+Release and token-rotation procedures: [docs/DOCKERHUB_TOKEN_WORKFLOW.md](docs/DOCKERHUB_TOKEN_WORKFLOW.md).
 
-Release and token-rotation procedures are documented in [docs/DOCKERHUB_TOKEN_WORKFLOW.md](docs/DOCKERHUB_TOKEN_WORKFLOW.md).
+## Contribution gate
 
-## Contributing
+A change is not ready to merge unless it:
 
-Secure Pride welcomes contributors aligned with the mission and willing to work within its security and accessibility constraints.
+- Preserves the no-telemetry and sensitive-data-minimization baseline.
+- Meets applicable accessibility, test, lint, and security checks.
+- Documents changed behavior, threat assumptions, or operational procedures.
 
-Start with [CONTRIBUTING.md](CONTRIBUTING.md). Implementation-specific guidance is kept in the documentation layer rather than duplicated here.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), the [AI Development Charter](docs/COPILOT-INSTRUCTIONS.md), and the [Quick Reference](docs/QUICK-REFERENCE.md) before opening a pull request.
 
-## Security policy
+## Report a vulnerability
 
-If you discover a vulnerability, do not open a public issue. Contact **security@securepride.org** with reproduction details and allow time for responsible disclosure.
+Do not open a public issue for a suspected vulnerability.
 
-## Contact
+Email [security@securepride.org](mailto:security@securepride.org) with reproduction details and allow time for responsible disclosure. See [SECURITY.md](SECURITY.md) for the disclosure process.
 
-- Website: https://securepride.org
-- General: hello@securepride.org
-- Security: security@securepride.org
-
-## Project structure
-
-The repository is organized around the application, security/development guidance, and operational automation. See the repository tree and linked documentation for the current structure; historical material is retained under `docs/history/` where applicable.
+For non-security questions: [hello@securepride.org](mailto:hello@securepride.org).
 
 ## Roadmap
 
-The roadmap is intentionally separate from the shipped surface above.
+Planned work is intentionally separate from the shipped surface.
 
-- [ ] Secure container templates (reproducible + auditable)
-- [ ] Privacy-first deployment pipelines
+- [ ] Reproducible, auditable container templates
+- [ ] Privacy-preserving deployment pipelines
 - [ ] Accessibility validation tooling
 - [ ] Community security playbooks
-- [ ] Restore the deferred Astro blog system and rebuild its components against the current design system
+
+See the project documentation for implementation milestones and historical work.
 
 ## License
 
