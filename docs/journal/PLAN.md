@@ -25,7 +25,9 @@ separate go-ahead once the strategy options are on the table.
 1. **Land the charter** — replace `docs/COPILOT-INSTRUCTIONS.md` content with
    v3.0, archive superseded docs per the charter's own instructions, fix
    `Secure-Pride` → `secure-pride` rot in CLAUDE.md and the charter, assign a
-   decision ID and file `decisions/DECISION-003.md` (the charter's own
+   decision ID and file `decisions/DECISION-005.md` (renumbered from 003 to
+   avoid collision with the contact-form decision merged upstream while this
+   was in flight; the charter's own
    "worked example" decision, made real).
 2. **Design-system gap audit** — what's in `secure-pride-design/project/`
    (kintsugi identity kit) vs. what's actually landed in `secure-pride/docs/brand/`

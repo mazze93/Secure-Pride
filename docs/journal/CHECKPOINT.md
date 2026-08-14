@@ -4,8 +4,9 @@ Last updated: 2026-08-13 21:45 EDT
 
 ## Phases
 - [x] 1. Land the AI Development Charter v3 into `docs/`, fix repo-name rot,
-      archive superseded docs, file DECISION-003 — commit `f8ffdb4`, local
-      only, not pushed yet (deferred, see below)
+      archive superseded docs, file DECISION-005 (renumbered from 003 —
+      collided with the contact-form decision merged upstream) — commit
+      `f8ffdb4`, rebased onto origin/main as `a88de85` and pushed
 - [ ] 2. Design-system gap audit (secure-pride-design vs docs/brand)
 - [ ] 3. Positioning audit (existing pitch deck + per-repo framing)
 - [ ] 4. Draft consolidation strategy doc
