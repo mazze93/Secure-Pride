@@ -36,16 +36,18 @@ Last updated: 2026-08-14 06:xx EDT
       candidate for phase 4 to resolve, not folded into general messaging
       cleanup. No repo writes this phase (design/macos-privacy/wireshark
       out of scope, and the Docker gap is a product call, not an audit fix).
-- [ ] 4. Draft consolidation strategy doc. Pre-read: open PR #47
-      (`docs/readme-reframe`, user's own commits, not yet merged) rewrites
-      `README.md` around a 5th positioning voice ("security infrastructure
-      for people who cannot fail safely," general/technical register) and
-      independently fixes the Docker scope-boundary gap phase 3 flagged.
-      User decision: treat PR #47 as settled direction — GitHub README
-      (technical) and marketing site (funder-facing) are intentionally
-      different registers, not something to merge into one voice. Phase 4
-      reconciles the other repos and the deck-vs-site maturity contradiction
-      around that split. See `PHASE3-AUDIT.md`'s addendum.
+- [x] 4. Draft consolidation strategy doc — see `docs/journal/PHASE4-STRATEGY.md`.
+      Recommends option C (flagship + satellites): no repo moves/merges,
+      consolidation is narrative not structural — each satellite README
+      opens by stating its relationship to `secure-pride` instead of
+      re-deriving an independent mission. One-sentence positioning drafted
+      per repo. Two items explicitly left as open decisions for phase 5,
+      not resolved in the doc: (1) reconcile the deck-vs-site maturity
+      contradiction (softer site language vs. update the deck — a real
+      strategic call, not a wording fix); (2) whether `macos-privacy`
+      belongs under the umbrella at all. Also recommends extending PR #47's
+      Docker-scope disclosure to the marketing pages making the same
+      self-host claim without caveat.
 - [ ] 5. Present to user, get go-ahead on structural changes
 
 ## To resume
