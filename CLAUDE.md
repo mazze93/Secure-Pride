@@ -35,7 +35,7 @@ npm run check    # Astro build + tsc validation (run before commit)
 
 ## Project State
 - **Hosting**: Cloudflare Pages + DNS — domain: securepride.org
-- **Repo**: `mazze93/Secure-Pride` / canonical local: `/Users/daedalus/Code/secure-pride/secure-pride-site` (Praxis Workspace Atlas — Security Mode)
+- **Repo**: `mazze93/secure-pride` / canonical local: `~/Projects/secure-pride/secure-pride`
 - **Cloudflare**: `_headers` and `_redirects` exist; Pages deployment status — verify in dashboard.
 ## Workflow
 - Before major changes, explain intent, constraints, and verification approach.
