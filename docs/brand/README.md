@@ -23,7 +23,7 @@ Five principles govern all Secure Pride communications:
 ## Design System
 
 - **Typography**: Orbitron (display), Rajdhani (headings), Source Sans 3 (body), JetBrains Mono (code)
-- **Core palette**: Teal `#0a7e74`, Purple `#3a2a5e`, Cyan `#06d6e0`, Pink `#ff2d95`
+- **Core palette (Kintsugi, live as of PR #44)**: Teal `#0a7e74`, Deep Purple `#2a1f54`, Cyan `#0fb5c9`, Hot Pink `#c81e6c`, plus a brass/gem accent set — see `secure-pride/src/styles/tokens.css` (mirrors `secure-pride-design/colors_and_type.css`, the tracked source of truth) for the full token list. This replaces the earlier neon-cyberpunk palette (Cyan `#06d6e0`, Pink `#ff2d95`, Purple `#3a2a5e`), retired 2026-08-14.
 - **Primary mark**: Shield-padlock (point-down orientation)
 - **Screen surface**: Dark-first (`#0a0a1a` background)
 - **Print surface**: White backgrounds with teal/purple accents only
