@@ -38,3 +38,46 @@ pitch deck pptx), `Security-Configs/securepride-wifi-8021x.mobileconfig`.
   Same rot already found in `secure-pride/CLAUDE.md`. Fixing everywhere found.
 **How to reverse**: this is a scope note, not a file change — reversing it
 means simply not doing phase 1 (charter landing) if the user redirects.
+
+## 2026-08-13 · Major finding · a fuller consolidation plan already exists in-flight
+**What**: `secure-pride-design` has a locked git worktree at
+`.claude/worktrees/kintsugi-convergence/` (branch `phase-1-v2-migration`,
+pushed to origin, Phase 0 already merged to `main` via PR #1) with its own
+`docs/journal/{PLAN,DECISIONS,CHECKPOINT}.md` dated 2026-07-31 — a 6-phase
+plan to converge secure-pride-design (kintsugi tokens), the Hugging Face org
+card (positioning voice), and `mazze93/secure-pride` (the app) into one
+coherent surface, routed through the `~/Projects/tools/stele` governance
+harness. Phases 0–1b done; Phase 1c blocked on `claude-local` having no
+model installed (`{"models":[]}` at the time).
+**Consulted the advisor on how to reconcile.** Verdict, followed here:
+- Don't resume/pivot into kintsugi-convergence tonight — it's scoped
+  narrower (secure-pride + secure-pride-design + Stele + HF voice) than this
+  session's ask (funder offer across all 4 domain repos, including
+  `macos-privacy` and `wireshark-beginner-kit`, which kintsugi never
+  mentions). The strategy doc should *cite* it as the in-flight
+  brand-coherence workstream, not redo or resume it.
+- The `claude-local` blocker (empty model list) is resolved — models are now
+  installed. **Correction after checking `/api/tags` sizes**: 4 models
+  present — `qwen3.6:latest` (23.9GB), `gemma4:latest` (9.6GB),
+  `llama3.1:8b` (4.9GB), `nemotron-3-super:cloud` (cloud-routed, not local).
+  This machine has **24GB unified RAM** (user-stated, M5 Pro) — `qwen3.6`
+  would consume essentially the entire budget with nothing left for the OS
+  or the Claude Code harness itself; not viable here despite being loaded.
+  `gemma4` (9.6GB) or `llama3.1:8b` (4.9GB) are the realistic local-swarm
+  models on this machine. Kintsugi's own checkpoint originally wanted
+  `gpt-oss:20b` (~13GB) — also too tight paired with anything else running.
+  Not silently resumed on the user's behalf regardless — Phase 4+ of that
+  plan is outward-facing and explicitly gated on confirmation.
+- Checked the HF org card kintsugi called "the strongest positioning
+  articulation" (`SecurePride/README` on Hugging Face, fetched
+  2026-08-13): it is currently just the default template placeholder text,
+  not the positioning copy kintsugi's PLAN.md describes. Either it reverted,
+  was never actually populated on that specific page, or the plan pointed at
+  a different surface. Not investigated further — the pitch deck (verified,
+  concrete) is a stronger and simpler source for this doc's narrative
+  anyway.
+- **Do not carry a named individual (records secretary named in kintsugi's
+  PLAN.md) into this session's strategy doc.** Kintsugi's own DECISIONS.md
+  already flags widening where that name appears as a Tier-3 org-direction
+  decision requiring mazze's explicit confirmation, not a copy task.
+**How to reverse**: n/a — a finding and a scope boundary, not a file change.

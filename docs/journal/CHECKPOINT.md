@@ -15,6 +15,18 @@ Last updated: 2026-08-13 21:45 EDT
 Read this file, then `PLAN.md`, then `DECISIONS.md`, then continue at the
 first unchecked phase above.
 
+## Paused 2026-08-13 21:45 EDT
+User opened a second, larger workstream mid-session: evaluate and adopt
+Meta's Muse Glimmer (30B, released 2026-08-10) as an always-on local agent
+model, strapped into the `~/Projects/tools/stele` harness (its `stele-core`
+Hono/Prisma audit-ledger backend currently has no real traffic). Requires
+provenance tracking, fine-tune comparison, versioned prompts, quantifiable
+tests, hardware metrics, and a `/security-review` before it's considered
+done. That work now lives in its own journal at
+`~/Projects/tools/stele/docs/journal/` — this file's phases 2–5 (design-gap
+audit, positioning audit, strategy draft, present) are un-abandoned but
+on hold until that's resolved or the user says to switch back.
+
 ## Deferred / needs user
 - Whether to attempt further recovery of the stranded git bundle in
   `~/Downloads/sp-cd-push/` (currently: no, not worth it — see DECISIONS.md)
