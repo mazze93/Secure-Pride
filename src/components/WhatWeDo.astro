@@ -114,10 +114,21 @@
           01
         </div>
         <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[0.08em] text-text-primary">
-          Deploy the scanner
+          Try the scanner
         </h3>
         <p class="mb-3 text-[0.95rem] leading-[1.65] text-text-secondary">
-          Self-hosted on your infrastructure. Your data never touches our servers.
+          Live now, no signup required.
+        </p>
+        <a
+          href="/tools/scanner"
+          class="mb-3 inline-block text-[0.8rem] text-brand-electric underline decoration-dotted transition-colors duration-150 hover:text-neon-cyan"
+        >
+          Try the live scanner →
+        </a>
+        <p class="mb-2 text-[0.8rem] text-text-muted leading-[1.5]">
+          Self-hosting: the Docker image below ships the interface today.
+          Full self-hosted scanning is on our roadmap — until then, scanning
+          runs on our Cloudflare deployment.
         </p>
         <code class="block overflow-x-auto rounded-lg border border-dark-border bg-dark-bg px-3 py-2 font-mono text-[0.8rem] text-brand-electric">docker run -p 8080:80 securepride/secure-pride</code>
         <a

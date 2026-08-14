@@ -48,11 +48,35 @@ Last updated: 2026-08-14 06:xx EDT
       belongs under the umbrella at all. Also recommends extending PR #47's
       Docker-scope disclosure to the marketing pages making the same
       self-host claim without caveat.
-- [ ] 5. Present to user, get go-ahead on structural changes
+- [x] 5. Present + execute — see `docs/journal/PHASE5-EXECUTION.md`. User
+      confirmed no paying clients (one standing partnership only), settling
+      the deck-vs-site maturity question toward overclaiming; site copy
+      softened accordingly and PR #47's Docker disclosure extended to the
+      marketing pages. Credibility citation (CVE research, methodology,
+      academic background) added, linking to mazzeleczzare.com. Favicon set
+      completed — mid-task, user supplied a new canonical shield mark
+      (rainbow-glint variant) from a location that turned out to be a major
+      discovery: `Secure-Pride/secure-pride` (org-owned GitHub repo, separate
+      local user account) is **the intended future canonical structure**,
+      confirmed live via a Hugging Face Space deploy. User scoped this
+      session to finish on today's flagship and treat the migration as
+      separate future work. `secure-pride-design` README reframed relative
+      to the flagship; its repo-name rot fixed.
+
+## Next major undertaking (not started)
+The `Secure-Pride/secure-pride` org-repo migration — everything phases 1–5
+did is interim-flagship work that should carry over, not a wasted pass, but
+the migration itself (org-account access, local-user-boundary handling,
+reconciling the org repo's Hugging Face Space + GitHub Pages + stub tools
+with `mazze93/secure-pride`'s Cloudflare Pages deployment, DNS cutover)
+needs its own scoped plan. See `PHASE5-EXECUTION.md`'s "Major discovery"
+section for what's known about it so far.
 
 ## To resume
 Read this file, then `PLAN.md`, then `DECISIONS.md`, then continue at the
-first unchecked phase above.
+first unchecked phase above. All five phases of the original `PLAN.md` are
+now complete — next work is scoping the org-repo migration as its own
+effort, not continuing this journal's phase list.
 
 ## Paused 2026-08-13 21:45 EDT
 User opened a second, larger workstream mid-session: evaluate and adopt

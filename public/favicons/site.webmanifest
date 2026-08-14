@@ -1,0 +1,14 @@
+{
+  "name": "Secure Pride",
+  "short_name": "SecurePride",
+  "description": "Privacy-first cybersecurity for LGBTQ+ communities",
+  "theme_color": "#0a0a1a",
+  "background_color": "#0a0a1a",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    { "src": "/favicons/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicons/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
