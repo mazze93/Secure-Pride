@@ -5,42 +5,46 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Kintsugi reskin — every value here is a var(--sp-*) reference into
+        // src/styles/tokens.css, which mirrors secure-pride-design's
+        // colors_and_type.css (the confirmed source of truth). Repainting
+        // the palette means editing tokens.css once, not this file.
+        //
+        // Role discipline, per the design repo's own brand table: electric
+        // stays cyan/sapphire and accent stays deep indigo — gem accents
+        // (violet/hotPink) are used sparingly, never promoted into the
+        // everyday CTA/accent roles. status converges to gem tones (a real,
+        // new visible change vs. v1 — protected/"ALL CLEAR" shifts cyan to
+        // emerald green).
         neon: {
-          pink: '#ff2d95', magenta: '#e040fb', purple: '#b24bf3', violet: '#7c4dff',
-          blue: '#448aff', cyan: '#06d6e0', teal: '#0a7e74', green: '#00e676',
-          yellow: '#ffd600', orange: '#ff9100', red: '#ff3d00',
+          pink: 'var(--sp-neon-pink)', magenta: 'var(--sp-neon-magenta)',
+          purple: 'var(--sp-neon-purple)', violet: 'var(--sp-neon-violet)',
+          blue: 'var(--sp-neon-blue)', cyan: 'var(--sp-neon-cyan)',
+          teal: 'var(--sp-neon-teal)', green: 'var(--sp-neon-green)',
+          yellow: 'var(--sp-neon-yellow)', orange: 'var(--sp-neon-orange)',
+          red: 'var(--sp-neon-red)',
         },
         brand: {
-          primary: '#0a7e74', accent: '#3a2a5e', electric: '#06d6e0',
-          hotPink: '#ff2d95', violet: '#b24bf3',
+          primary: 'var(--sp-teal)', accent: 'var(--sp-deep-purple)',
+          electric: 'var(--sp-cyan)', hotPink: 'var(--sp-hot-pink)',
+          violet: 'var(--sp-violet)',
         },
         dark: {
-          void: '#05050f', bg: '#0a0a1a', surface: '#111128', elevated: '#1a1a35',
-          border: '#2a2a50', borderGlow: '#3a3a6a',
+          void: 'var(--sp-void)', bg: 'var(--sp-bg)', surface: 'var(--sp-surface)',
+          elevated: 'var(--sp-elevated)', border: 'var(--sp-border)',
+          borderGlow: 'var(--sp-border-glow)',
         },
-        light: { bg: '#faf8f5', surface: '#ffffff', elevated: '#f0ede8', border: '#d4cfc7' },
-        status: { protected: '#06d6e0', warning: '#ffd600', blocked: '#ff2d95', info: '#448aff' },
-        text: { primary: '#eeeef6', secondary: '#9898b8', muted: '#5a5a78', inverse: '#0a0a1a' },
-        // Kintsugi design-system palette (design.securepride.org) — additive,
-        // not yet used by any component. Available for incremental adoption;
-        // see src/styles/tokens.css for the CSS-custom-property equivalents.
-        kintsugi: {
-          brass: {
-            highlight: '#f5d07a', light: '#e2b25b', hero: '#b48438', mid: '#8a5f1e',
-            dark: '#4a341a', deep: '#3a2a12', void: '#2a1c08',
-          },
-          indigo: {
-            light: '#8a8ad0', edge: '#3a3a6a', raised: '#232852', hero: '#2a1f54',
-            slate: '#1a1f3e', deep: '#0f1028', void: '#0a0a1a',
-          },
-          fireOpal: {
-            cream: '#ffe8b8', ember: '#ffa94d', base: '#ff5f1f', core: '#d63030', deep: '#7a1f2e',
-          },
-          gem: {
-            garnet: '#c8321e', amber: '#e8871a', citrine: '#e8a500', emerald: '#10c96a',
-            malachite: '#0a7e74', sapphire: '#0fb5c9', lapis: '#3a6ad9', amethyst: '#8b2ecc',
-            tourmaline: '#c81e6c',
-          },
+        light: {
+          bg: 'var(--sp-light-bg)', surface: 'var(--sp-light-surface)',
+          elevated: 'var(--sp-light-elevated)', border: 'var(--sp-light-border)',
+        },
+        status: {
+          protected: 'var(--sp-status-protected)', warning: 'var(--sp-status-warning)',
+          blocked: 'var(--sp-status-blocked)', info: 'var(--sp-status-info)',
+        },
+        text: {
+          primary: 'var(--sp-text-primary)', secondary: 'var(--sp-text-secondary)',
+          muted: 'var(--sp-text-muted)', inverse: 'var(--sp-text-inverse)',
         },
       },
       fontFamily: {
@@ -66,14 +70,14 @@ export default {
       },
       borderRadius: { sm: '6px', md: '8px', lg: '12px', xl: '16px', '2xl': '20px' },
       boxShadow: {
-        glow: '0 0 20px rgba(6,214,224,0.4), 0 0 60px rgba(6,214,224,0.15)',
-        'glow-pink': '0 0 20px rgba(255,45,149,0.4), 0 0 60px rgba(255,45,149,0.15)',
-        'glow-violet': '0 0 20px rgba(178,75,243,0.4), 0 0 60px rgba(178,75,243,0.15)',
-        'glow-rainbow': '0 0 20px rgba(255,45,149,0.3), 0 0 40px rgba(178,75,243,0.2), 0 0 60px rgba(6,214,224,0.15)',
+        glow: 'var(--glow-cyan)',
+        'glow-pink': 'var(--glow-pink)',
+        'glow-violet': 'var(--glow-violet)',
+        'glow-rainbow': 'var(--glow-rainbow)',
       },
       backgroundImage: {
-        'rainbow-gradient': 'linear-gradient(135deg, #ff3d00, #ff9100, #ffd600, #00e676, #448aff, #b24bf3, #ff2d95)',
-        'neon-gradient': 'linear-gradient(135deg, #06d6e0, #b24bf3, #ff2d95)',
+        'rainbow-gradient': 'var(--grad-rainbow)',
+        'neon-gradient': 'var(--grad-neon)',
       },
       animation: { glow: 'glow 1.5s ease-in-out infinite alternate' },
       keyframes: {
