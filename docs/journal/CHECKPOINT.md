@@ -19,7 +19,23 @@ Last updated: 2026-08-14 06:xx EDT
       `secure-pride-design`'s ui_kits README (out of write-scope this phase,
       carried forward). Also fixed in-pass: `docs/brand/README.md`'s stale
       palette description, now that #44 resolved which palette is canonical.
-- [ ] 3. Positioning audit (existing pitch deck + per-repo framing)
+- [x] 3. Positioning audit (existing pitch deck + per-repo framing) — see
+      `docs/journal/PHASE3-AUDIT.md`. Headline finding: at least three
+      incompatible self-descriptions of what Secure Pride is exist at once
+      (AI-conversation scanner for LGBTQ+ orgs, per the deck + live site;
+      a five-product "sovereignty stack," per `secure-pride-design`; a
+      practical-security teaching umbrella, per `wireshark-beginner-kit`),
+      plus `macos-privacy` has no relationship to any of them. Also: the
+      deck (early-stage, seeking pilots) and the live site's pricing copy
+      ("This isn't a trial. This is the product," a live $200/mo tier)
+      contradict each other on maturity. Sharpest finding: the live site's
+      own `docker run` self-host instructions don't actually run the
+      scanner — `functions/api/scan.ts` is Cloudflare-Pages-Functions-only,
+      and the Dockerfile explicitly excludes `functions/` from the image,
+      confirmed by reading both files directly. Flagged as the top
+      candidate for phase 4 to resolve, not folded into general messaging
+      cleanup. No repo writes this phase (design/macos-privacy/wireshark
+      out of scope, and the Docker gap is a product call, not an audit fix).
 - [ ] 4. Draft consolidation strategy doc
 - [ ] 5. Present to user, get go-ahead on structural changes
 
