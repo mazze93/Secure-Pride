@@ -10,7 +10,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro build && tsc --noEmit",
+    "check": "node scripts/check-color-tokens.mjs && astro build && tsc --noEmit",
+    "check:tokens": "node scripts/check-color-tokens.mjs",
     "astro": "astro"
   },
   "dependencies": {

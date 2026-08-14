@@ -1,106 +1,106 @@
 /* ════════════════════════════════════════════════════════════
    Secure Pride — Kintsugi design tokens (color layer)
-   Source: claude.ai Design project "Secure Pride (kintsugi) Design
-   System" (design-tokens.json / tokens.css) — DTCG format, brass +
-   indigo + fire-opal palette, replaces the retired neon-cyberpunk
-   direction. Full system: https://design.securepride.org/design
 
-   Scope of this pull: color tokens only. Semantic-layer names are
-   namespaced --kintsugi-* so they coexist with the site's current
-   palette (src/styles/global.css) without overriding it — nothing
-   in src/ consumes these yet. Component-level tokens and the .sp-*
-   utility classes from upstream are intentionally left out of this
-   pass; pull them in when components actually adopt the palette.
+   Source of truth: secure-pride-design/project/colors_and_type.css
+   (the git-tracked design system repo, design.securepride.org).
+   These are the same names and values, kept in sync by hand until
+   Phase 4's automated bridge lands — diff against that file directly
+   when the design repo's palette changes.
+
+   tailwind.config.ts references these via var(--sp-*) instead of
+   literal hex, so a repaint means editing values here once.
+
+   A prior version of this file mirrored a different, disconnected
+   Kintsugi export (a claude.ai Design "DTCG" artifact) that disagreed
+   with the git repo on several roles (notably: fire-opal as the
+   primary action color, vs. this source's cyan/sapphire). That
+   export was retired 2026-08-14 in favor of this repo's own tracked
+   source — see docs/decisions/ for the reskin correction.
    ════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ─── Primitives ─────────────────────────────────────────── */
+  /* ─── Surfaces (dark-first, unchanged from v1) ──────────────── */
+  --sp-void:          #05050f;
+  --sp-bg:            #0a0a1a;
+  --sp-surface:       #111128;
+  --sp-elevated:      #1a1a35;
+  --sp-border:        #2a2a50;
+  --sp-border-glow:   #3a3a6a;
+
+  /* Light mode surfaces (print / docs only) */
+  --sp-light-bg:       #faf8f5;
+  --sp-light-surface:  #ffffff;
+  --sp-light-elevated: #f0ede8;
+  --sp-light-border:   #d4cfc7;
+
+  /* ─── Brand core — gem tones on a brass/indigo duet ─────────── */
+  --sp-teal:          #0a7e74;
+  --sp-deep-purple:   #2a1f54;
+  --sp-indigo:        #0f1028;
+  --sp-indigo-slate:  #1a1f3e;
+  --sp-indigo-hero:   #2a1f54;
+  --sp-cyan:          #0fb5c9;
+  --sp-hot-pink:      #c81e6c;
+  --sp-violet:        #8b2ecc;
+
+  /* ─── Brass / kintsugi palette — from the shield mark ───────── */
   --sp-brass-highlight: #f5d07a;
   --sp-brass-light:     #e2b25b;
-  --sp-brass-hero:      #b48438;
+  --sp-brass:           #b48438;
   --sp-brass-mid:       #8a5f1e;
   --sp-brass-dark:      #4a341a;
-  --sp-brass-deep:      #3a2a12;
-  --sp-brass-void:      #2a1c08;
+  --sp-brass-shadow:    #2a1c08;
 
-  --sp-indigo-light:    #8a8ad0;
-  --sp-indigo-edge:     #3a3a6a;
-  --sp-indigo-raised:   #232852;
-  --sp-indigo-hero:     #2a1f54;
-  --sp-indigo-slate:    #1a1f3e;
-  --sp-indigo-deep:     #0f1028;
-  --sp-indigo-void:     #0a0a1a;
+  /* Fire opal — the kintsugi voice, where the break shows.
+     Reserved for the mended-seam gradient/glow, not a flat fill —
+     see --grad-opal / --glow-opal below. Not wired into any Tailwind
+     role this pass; available for a future brand-mark component. */
+  --sp-opal-cream:    #ffe8b8;
+  --sp-opal-ember:    #ffa94d;
+  --sp-opal:          #ff5f1f;
+  --sp-opal-core:     #d63030;
+  --sp-opal-deep:     #7a1f2e;
 
-  --sp-fireopal-cream:  #ffe8b8;
-  --sp-fireopal-ember:  #ffa94d;
-  --sp-fireopal-base:   #ff5f1f;
-  --sp-fireopal-core:   #d63030;
-  --sp-fireopal-deep:   #7a1f2e;
+  /* Gem tones (was: neon spectrum — now jeweled) */
+  --sp-gem-citrine:    #e8a500;
+  --sp-gem-emerald:    #10c96a;
+  --sp-gem-sapphire:   #0fb5c9;
+  --sp-gem-amethyst:   #8b2ecc;
+  --sp-gem-tourmaline: #c81e6c;
 
-  --sp-gem-garnet:      #c8321e;
-  --sp-gem-amber:       #e8871a;
-  --sp-gem-citrine:     #e8a500;
-  --sp-gem-emerald:     #10c96a;
-  --sp-gem-malachite:   #0a7e74;
-  --sp-gem-sapphire:    #0fb5c9;
-  --sp-gem-lapis:       #3a6ad9;
-  --sp-gem-amethyst:    #8b2ecc;
-  --sp-gem-tourmaline:  #c81e6c;
+  /* Legacy neon aliases (kept for back-compat, remapped to gems) */
+  --sp-neon-red:     #c8321e;
+  --sp-neon-orange:  #e8871a;
+  --sp-neon-yellow:  #e8a500;
+  --sp-neon-green:   #10c96a;
+  --sp-neon-blue:    #3a6ad9;
+  --sp-neon-violet:  #8b2ecc;
+  --sp-neon-pink:    #c81e6c;
+  --sp-neon-magenta: #b23aa8;
+  --sp-neon-purple:  #6a3dcc;
+  --sp-neon-cyan:    #0fb5c9;
+  --sp-neon-teal:    #0a7e74;
 
-  --sp-status-protected: #06d6e0;
-  --sp-status-warning:   #ffd600;
-  --sp-status-blocked:   #ff2d95;
-  --sp-status-info:      #448aff;
+  /* Status / semantic — converged to gem tones */
+  --sp-status-protected: #10c96a;
+  --sp-status-warning:   #e8a500;
+  --sp-status-blocked:   #c81e6c;
+  --sp-status-info:      #0fb5c9;
 
-  --sp-text-strong:     #f4f4fb;
-  --sp-text-default:    #cfd0e8;
-  --sp-text-muted:      #8b8db0;
-  --sp-text-subtle:     #5a5d80;
-  --sp-text-disabled:   #3a3d58;
+  /* Text */
+  --sp-text-primary:   #eeeef6;
+  --sp-text-secondary: #9898b8;
+  --sp-text-muted:     #5a5a78;
+  --sp-text-inverse:   #0a0a1a;
 
-  /* ─── Semantic (namespaced — coexists with the live palette) ── */
-  --kintsugi-bg-canvas:   var(--sp-indigo-void);
-  --kintsugi-bg-surface:  var(--sp-indigo-deep);
-  --kintsugi-bg-elevated: var(--sp-indigo-slate);
-  --kintsugi-bg-overlay:  var(--sp-indigo-raised);
-  --kintsugi-bg-brass:    var(--sp-brass-void);
+  /* ─── Gradients ──────────────────────────────────────────── */
+  --grad-rainbow: linear-gradient(135deg, #c8321e, #e8871a, #e8a500, #10c96a, #3a6ad9, #8b2ecc, #c81e6c);
+  --grad-neon:    linear-gradient(135deg, #0fb5c9, #8b2ecc, #c81e6c);
+  --grad-opal:    radial-gradient(circle at 35% 35%, #ffe8b8 0%, #ff9100 40%, #ff5f1f 75%, #d63030 100%);
 
-  --kintsugi-text-primary: var(--sp-text-strong);
-  --kintsugi-text-body:    var(--sp-text-default);
-  --kintsugi-text-muted:   var(--sp-text-muted);
-  --kintsugi-text-subtle:  var(--sp-text-subtle);
-  --kintsugi-text-inverse: var(--sp-indigo-deep);
-  --kintsugi-text-brass:   var(--sp-brass-highlight);
-
-  --kintsugi-action-primary:       var(--sp-fireopal-base);
-  --kintsugi-action-primary-hover: var(--sp-fireopal-ember);
-  --kintsugi-action-brass:         var(--sp-brass-hero);
-  --kintsugi-action-subtle:        var(--sp-indigo-raised);
-  --kintsugi-action-danger:        var(--sp-status-blocked);
-
-  --kintsugi-border-subtle:   rgba(138, 138, 208, 0.10);
-  --kintsugi-border-default:  rgba(138, 138, 208, 0.18);
-  --kintsugi-border-emphasis: rgba(138, 138, 208, 0.32);
-  --kintsugi-border-brass:    rgba(180, 132, 56, 0.32);
-  --kintsugi-border-focus:    var(--sp-fireopal-ember);
-
-  --kintsugi-state-shielded:  var(--sp-brass-hero);
-  --kintsugi-state-protected: var(--sp-status-protected);
-  --kintsugi-state-info:      var(--sp-status-info);
-  --kintsugi-state-warning:   var(--sp-status-warning);
-  --kintsugi-state-blocked:   var(--sp-status-blocked);
-
-  /* Kintsugi seam — repair gradient. Section transition / completion /
-     recovery only, per upstream usage note. Never decorative filler. */
-  --kintsugi-seam-gradient: linear-gradient(
-    90deg,
-    var(--sp-gem-garnet) 0%,
-    var(--sp-fireopal-base) 14%,
-    var(--sp-gem-amber) 28%,
-    var(--sp-gem-citrine) 42%,
-    var(--sp-gem-emerald) 56%,
-    var(--sp-gem-sapphire) 70%,
-    var(--sp-gem-amethyst) 84%,
-    var(--sp-gem-tourmaline) 100%
-  );
+  /* ─── Glow effects ───────────────────────────────────────── */
+  --glow-cyan:    0 0 20px rgba(15,181,201,0.4), 0 0 60px rgba(15,181,201,0.15);
+  --glow-pink:    0 0 20px rgba(200,30,108,0.4), 0 0 60px rgba(200,30,108,0.15);
+  --glow-violet:  0 0 20px rgba(139,46,204,0.4), 0 0 60px rgba(139,46,204,0.15);
+  --glow-rainbow: 0 0 20px rgba(200,30,108,0.3), 0 0 40px rgba(139,46,204,0.2), 0 0 60px rgba(15,181,201,0.15);
 }

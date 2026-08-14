@@ -5,48 +5,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Kintsugi reskin — neon/brand/dark/text now resolve to Kintsugi
-        // equivalents (same role, new palette). status stays frozen per
-        // Kintsugi's own spec ("unchanged from spec v0, kept for
-        // continuity"). neon.* uses Kintsugi's own documented back-compat
-        // mapping (gem tones standing in for each retired neon color) so
-        // any existing neon-* class keeps working without a rename.
+        // Kintsugi reskin — every value here is a var(--sp-*) reference into
+        // src/styles/tokens.css, which mirrors secure-pride-design's
+        // colors_and_type.css (the confirmed source of truth). Repainting
+        // the palette means editing tokens.css once, not this file.
+        //
+        // Role discipline, per the design repo's own brand table: electric
+        // stays cyan/sapphire and accent stays deep indigo — gem accents
+        // (violet/hotPink) are used sparingly, never promoted into the
+        // everyday CTA/accent roles. status converges to gem tones (a real,
+        // new visible change vs. v1 — protected/"ALL CLEAR" shifts cyan to
+        // emerald green).
         neon: {
-          pink: '#c81e6c', magenta: '#b23aa8', purple: '#6a3dcc', violet: '#8b2ecc',
-          blue: '#3a6ad9', cyan: '#0fb5c9', teal: '#0a7e74', green: '#10c96a',
-          yellow: '#e8a500', orange: '#e8871a', red: '#c8321e',
+          pink: 'var(--sp-neon-pink)', magenta: 'var(--sp-neon-magenta)',
+          purple: 'var(--sp-neon-purple)', violet: 'var(--sp-neon-violet)',
+          blue: 'var(--sp-neon-blue)', cyan: 'var(--sp-neon-cyan)',
+          teal: 'var(--sp-neon-teal)', green: 'var(--sp-neon-green)',
+          yellow: 'var(--sp-neon-yellow)', orange: 'var(--sp-neon-orange)',
+          red: 'var(--sp-neon-red)',
         },
         brand: {
-          primary: '#0a7e74', accent: '#8b2ecc', electric: '#ff5f1f',
-          hotPink: '#c81e6c', violet: '#8b2ecc',
+          primary: 'var(--sp-teal)', accent: 'var(--sp-deep-purple)',
+          electric: 'var(--sp-cyan)', hotPink: 'var(--sp-hot-pink)',
+          violet: 'var(--sp-violet)',
         },
         dark: {
-          void: '#0a0a1a', bg: '#0a0a1a', surface: '#0f1028', elevated: '#1a1f3e',
-          border: '#3a3a6a', borderGlow: '#8a8ad0',
+          void: 'var(--sp-void)', bg: 'var(--sp-bg)', surface: 'var(--sp-surface)',
+          elevated: 'var(--sp-elevated)', border: 'var(--sp-border)',
+          borderGlow: 'var(--sp-border-glow)',
         },
-        light: { bg: '#faf8f5', surface: '#ffffff', elevated: '#f0ede8', border: '#d4cfc7' },
-        status: { protected: '#06d6e0', warning: '#ffd600', blocked: '#ff2d95', info: '#448aff' },
-        text: { primary: '#f4f4fb', secondary: '#cfd0e8', muted: '#8b8db0', inverse: '#0f1028' },
-        // Raw Kintsugi palette, for anything that wants a token the roles
-        // above don't cover. See src/styles/tokens.css for the CSS-custom-
-        // property equivalents.
-        kintsugi: {
-          brass: {
-            highlight: '#f5d07a', light: '#e2b25b', hero: '#b48438', mid: '#8a5f1e',
-            dark: '#4a341a', deep: '#3a2a12', void: '#2a1c08',
-          },
-          indigo: {
-            light: '#8a8ad0', edge: '#3a3a6a', raised: '#232852', hero: '#2a1f54',
-            slate: '#1a1f3e', deep: '#0f1028', void: '#0a0a1a',
-          },
-          fireOpal: {
-            cream: '#ffe8b8', ember: '#ffa94d', base: '#ff5f1f', core: '#d63030', deep: '#7a1f2e',
-          },
-          gem: {
-            garnet: '#c8321e', amber: '#e8871a', citrine: '#e8a500', emerald: '#10c96a',
-            malachite: '#0a7e74', sapphire: '#0fb5c9', lapis: '#3a6ad9', amethyst: '#8b2ecc',
-            tourmaline: '#c81e6c',
-          },
+        light: {
+          bg: 'var(--sp-light-bg)', surface: 'var(--sp-light-surface)',
+          elevated: 'var(--sp-light-elevated)', border: 'var(--sp-light-border)',
+        },
+        status: {
+          protected: 'var(--sp-status-protected)', warning: 'var(--sp-status-warning)',
+          blocked: 'var(--sp-status-blocked)', info: 'var(--sp-status-info)',
+        },
+        text: {
+          primary: 'var(--sp-text-primary)', secondary: 'var(--sp-text-secondary)',
+          muted: 'var(--sp-text-muted)', inverse: 'var(--sp-text-inverse)',
         },
       },
       fontFamily: {
@@ -72,14 +70,14 @@ export default {
       },
       borderRadius: { sm: '6px', md: '8px', lg: '12px', xl: '16px', '2xl': '20px' },
       boxShadow: {
-        glow: '0 0 20px rgba(255,95,31,0.4), 0 0 60px rgba(255,95,31,0.15)',
-        'glow-pink': '0 0 20px rgba(200,30,108,0.4), 0 0 60px rgba(200,30,108,0.15)',
-        'glow-violet': '0 0 20px rgba(139,46,204,0.4), 0 0 60px rgba(139,46,204,0.15)',
-        'glow-rainbow': '0 0 20px rgba(200,30,108,0.3), 0 0 40px rgba(139,46,204,0.2), 0 0 60px rgba(255,95,31,0.15)',
+        glow: 'var(--glow-cyan)',
+        'glow-pink': 'var(--glow-pink)',
+        'glow-violet': 'var(--glow-violet)',
+        'glow-rainbow': 'var(--glow-rainbow)',
       },
       backgroundImage: {
-        'rainbow-gradient': 'linear-gradient(135deg, #c8321e, #e8871a, #e8a500, #10c96a, #3a6ad9, #8b2ecc, #c81e6c)',
-        'neon-gradient': 'linear-gradient(135deg, #ff5f1f, #8b2ecc, #c81e6c)',
+        'rainbow-gradient': 'var(--grad-rainbow)',
+        'neon-gradient': 'var(--grad-neon)',
       },
       animation: { glow: 'glow 1.5s ease-in-out infinite alternate' },
       keyframes: {
