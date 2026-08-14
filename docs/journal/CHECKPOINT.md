@@ -1,13 +1,22 @@
 # Checkpoint
 
-Last updated: 2026-08-13 21:45 EDT
+Last updated: 2026-08-14 06:xx EDT
 
 ## Phases
 - [x] 1. Land the AI Development Charter v3 into `docs/`, fix repo-name rot,
       archive superseded docs, file DECISION-005 (renumbered from 003 —
       collided with the contact-form decision merged upstream) — commit
       `f8ffdb4`, rebased onto origin/main as `a88de85` and pushed
-- [ ] 2. Design-system gap audit (secure-pride-design vs docs/brand)
+- [x] 2. Design-system gap audit (secure-pride-design vs docs/brand) — see
+      `docs/journal/PHASE2-AUDIT.md`. Five findings: kintsugi palette landed
+      in code but unused by components; `docs/brand/README.md` describes the
+      retired neon palette as current (fix deferred to phase 4 — depends on
+      the adopt-kintsugi-or-not call); favicon set incomplete (PNG fallbacks,
+      apple-touch-icon, webmanifest missing — low-risk, held for phase 5);
+      UI kit prototype far ahead of the actual (marketing-only) product;
+      repo-name rot in `secure-pride-design`'s ui_kits README (out of
+      write-scope this phase, carried forward). Logo mark and
+      `design-system-v2.jsx` confirmed already in sync.
 - [ ] 3. Positioning audit (existing pitch deck + per-repo framing)
 - [ ] 4. Draft consolidation strategy doc
 - [ ] 5. Present to user, get go-ahead on structural changes
