@@ -100,6 +100,36 @@ stated purpose of this whole consolidation effort (`PLAN.md`'s title:
 narrative is canonical, and is the live site allowed to say things the
 product can't yet do" as the central question, not a subsection.
 
+## Addendum: PR #47 (`docs/readme-reframe`)
+
+Checked before starting phase 4, per user request. Open PR, authored under
+the user's own git identity (commits 02:31/02:36 EDT 2026-08-14, opened as
+a PR at 06:31 UTC — same day as this audit, predating it). Rewrites
+`README.md` only (1 file) with a fifth positioning voice: "Security
+infrastructure for people who cannot fail safely" — general OSS/engineering
+framing, the AI Safety Scanner presented as one "shipped surface" among four
+(web platform, scanner, static distribution, security dev controls). No
+pricing, no founder story, no named org examples (health clinic, sports
+league) — a different register from both the pitch deck and the live
+marketing site, closer to `secure-pride-design`'s broader framing without
+matching it exactly either.
+
+It also independently fixes the exact Docker scope-boundary gap this audit
+flagged as its sharpest finding — the new README states plainly:
+
+> **Scope boundary:** Cloudflare Pages Functions, including `/api/scan` and
+> `/api/health`, are not bundled into the Docker image. Use
+> `npx wrangler pages dev` for full-stack local development.
+
+**User decision (2026-08-14): treat PR #47 as settled direction.** Phase 4
+should assume it merges as-is and build the consolidation strategy around
+its framing — i.e., the GitHub README (technical/contributor-facing) and
+the marketing site (funder/sponsor-facing) are intentionally different
+registers, not a conflict to resolve into one voice. Phase 4 reconciles
+`secure-pride-design`, `wireshark-beginner-kit`, and the live site's own
+internal maturity contradiction (deck vs. pricing copy) around that split,
+rather than treating PR #47 itself as one more open narrative to weigh.
+
 ## Not decided here
 
 Per `PLAN.md`'s constraints and this phase's read-only scope: no repo
