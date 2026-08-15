@@ -128,3 +128,12 @@ Reframed to state its relationship to the flagship instead of an
 independent "sovereignty stack" mission (phase 4 recommendation), and
 fixed the `mazze93/Secure-Pride` capitalization rot in `ui_kits/web/README.md`
 flagged back in phase 2 and carried forward since.
+
+Push hit a third concurrent-work race this session (after PR #44 in phase 2
+and the `docs/readme-reframe` discovery before phase 4): two PRs
+("Kintsugi V2 convergence," "Phase 1: kintsugi V2 migration + component
+factory") landed on `secure-pride-design`'s `main` between reading the file
+and pushing. They rewrote the same file's "Color System" section — a
+disjoint region from the "Product Context"/links/"Sources" edits made here.
+Rebased and verified the diff didn't overlap before pushing; commit
+`d0c121a` on top of `38c081a`.
