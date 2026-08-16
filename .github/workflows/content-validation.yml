@@ -57,6 +57,28 @@ jobs:
             npm install
           fi
 
+      - name: Type check
+        run: |
+          pm="${{ steps.pm.outputs.pm }}"
+          if [ "$pm" = "pnpm" ]; then
+            pnpm exec tsc --noEmit
+          elif [ "$pm" = "yarn" ]; then
+            yarn tsc --noEmit
+          else
+            npx tsc --noEmit
+          fi
+
+      - name: Test
+        run: |
+          pm="${{ steps.pm.outputs.pm }}"
+          if [ "$pm" = "pnpm" ]; then
+            pnpm run test
+          elif [ "$pm" = "yarn" ]; then
+            yarn test
+          else
+            npm run test
+          fi
+
       - name: Build (content + schema validation)
         run: |
           pm="${{ steps.pm.outputs.pm }}"
