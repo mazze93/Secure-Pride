@@ -1,0 +1,9 @@
+[package]
+name = "scanner-rules"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+once_cell = "1.21.4"
+regex = "1.13.1"
+scanner-core = { version = "0.1.0", path = "../scanner-core" }

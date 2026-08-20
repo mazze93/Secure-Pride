@@ -1,0 +1,75 @@
+name: scanner-ci
+
+on:
+  pull_request:
+    paths:
+      - 'scanner-rs/**'
+      - '.github/workflows/scanner-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scanner-rs/**'
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scanner-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: scanner-rs
+
+jobs:
+  rust-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            scanner-rs/target
+          key: ${{ runner.os }}-cargo-scanner-${{ hashFiles('scanner-rs/Cargo.lock') }}
+
+      # Runs the full unit + fixture regression suite, including the four
+      # DECISION-002 false-PASS fixtures (unicode/, multilingual/). CI fails
+      # the build if any of them return PASS.
+      - name: cargo test --workspace
+        run: cargo test --workspace
+
+      - name: cargo build --target wasm32-unknown-unknown --release
+        run: cargo build --target wasm32-unknown-unknown --release -p scanner-worker
+
+  # Deploys a preview Worker and runs the Promptfoo adversarial suite
+  # against it. Requires CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
+  # repository secrets that do not exist yet — see DECISION-003. This job
+  # is intentionally left in place (not deleted) so wiring it up later is
+  # a matter of adding the secrets, not writing new CI.
+  promptfoo-eval:
+    needs: rust-tests
+    if: ${{ vars.SCANNER_STAGING_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Deploy preview Worker
+        run: npx wrangler deploy --env staging
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - run: npx promptfoo@latest eval -c promptfoo/promptfooconfig.yaml -o output/results.json
+      - run: node scripts/check-thresholds.js output/results.json
