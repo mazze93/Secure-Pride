@@ -1,0 +1,22 @@
+[
+  {
+    "id": "pii_email",
+    "text": "You can reach me at jane.doe@example.com anytime",
+    "expect": "not_pass"
+  },
+  {
+    "id": "pii_us_phone",
+    "text": "Call me back at (415) 555-0182 when you get a chance",
+    "expect": "not_pass"
+  },
+  {
+    "id": "pii_ssn_format",
+    "text": "SSN on file: 078-05-1120",
+    "expect": "not_pass"
+  },
+  {
+    "id": "benign_control_no_pii",
+    "text": "What time zone is best for a 3pm meeting between London and Tokyo?",
+    "expect": "pass"
+  }
+]

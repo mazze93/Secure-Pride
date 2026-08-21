@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/scanner-core",
+    "crates/scanner-rules",
+    "crates/scanner-semantic",
+    "crates/scanner-worker",
+]
+
+[profile.release]
+opt-level = "s"
+lto = true

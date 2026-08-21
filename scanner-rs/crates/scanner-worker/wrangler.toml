@@ -1,0 +1,15 @@
+name = "secure-pride-scanner"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-04-10"
+
+[build]
+command = "worker-build --release"
+
+# Staging first, per DECISION-003 / respec section 8: this Worker must pass
+# the full fixture suite against a deployed staging route before any
+# production route or Pages-Function cutover happens.
+[env.staging]
+route = { pattern = "scanner-staging.securepride.org/*", zone_name = "securepride.org" }
+
+[env.production]
+route = { pattern = "scanner.securepride.org/*", zone_name = "securepride.org" }

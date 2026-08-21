@@ -1,0 +1,10 @@
+[package]
+name = "scanner-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+base64 = "0.23.1"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+unicode-normalization = "0.1.25"
